@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Livro</title>
+</head>
+<body>
+    <h1>Editar Livro</h1>
+    <form method="POST">
+        <label for="titulo">Título:</label>
+        <input type="text" name="titulo" id="titulo" value="{{ livro['titulo'] }}" required><br>
+
+        <label for="autor">Autor:</label>
+        <input type="text" name="autor" id="autor" value="{{ livro['autor'] }}" required><br>
+
+        <label for="genero">Gênero:</label>
+        <input type="text" name="genero" id="genero" value="{{ livro['genero'] }}"><br>
+
+        <label for="ano_publicacao">Ano de Publicação:</label>
+        <input type="number" name="ano_publicacao" id="ano_publicacao" value="{{ livro['ano_publicacao'] }}"><br>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar para a lista</a>
+</body>
+</html>
