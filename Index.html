@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Catálogo de Livros</h1>
+    <a href="{{ url_for('adicionar') }}">Adicionar Novo Livro</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Gênero</th>
+                <th>Ano de Publicação</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for livro in livros %}
+            <tr>
+                <td>{{ livro['titulo'] }}</td>
+                <td>{{ livro['autor'] }}</td>
+                <td>{{ livro['genero'] }}</td>
+                <td>{{ livro['ano_publicacao'] }}</td>
+                <td>
+                    <a href="{{ url_for('editar', id=livro['id']) }}">Editar</a>
+                    <a href="{{ url_for('excluir', id=livro['id']) }}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
